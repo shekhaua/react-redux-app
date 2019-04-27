@@ -22,7 +22,7 @@ class Youtube extends Component {
 
   onItemClick(event, video) {
     event.preventDefault();
-    console.log(video)
+    console.log(video);
     this.setState({ selectedVideo: video });
   }
 

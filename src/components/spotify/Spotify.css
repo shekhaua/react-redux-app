@@ -1,0 +1,10 @@
+.btn-outline-info {
+    color: #2cabe3;
+    border-color: #2cabe3;
+}
+
+.btn-outline-info:hover {
+    color: #fff;
+    background-color: #2cabe3;
+    border-color: #2cabe3;
+}

@@ -1,5 +1,5 @@
 {
-  "name": "react-redux",
+  "name": "react-redux-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,7 +11,10 @@
     "prop-types": "^15.7.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-scripts": "^2.1.5",
+    "react-redux": "^6.0.1",
+    "react-scripts": "^2.1.8",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "simple-line-icons": "^2.4.1"
   },
   "scripts": {

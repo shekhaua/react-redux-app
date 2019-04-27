@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware} from 'redux';
+import ReduxThunk from 'redux-thunk'
 
 import 'bootstrap/dist/css/bootstrap.css';
-import "font-awesome/css/font-awesome.css";
+import 'font-awesome/css/font-awesome.css';
 import './index.css';
 import './defaultColors.css';
+
 import App from './App';
+import reducers from './reducers';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Provider store={createStore(reducers, applyMiddleware(ReduxThunk))}><App /></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

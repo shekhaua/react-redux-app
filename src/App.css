@@ -14,3 +14,75 @@
 .form-widget .no-content {
     text-align: center;
 }
+
+
+.mb-0, .my-0 {
+    margin-bottom: 0!important;
+}
+
+.mt-0, .my-0 {
+    margin-top: 0!important;
+}
+.flex-row {
+    flex-direction: row!important;
+}
+.d-flex {
+    display: flex!important;
+}
+
+.p-2 {
+    padding: .5rem!important;
+}
+
+.rounded-circle {
+    border-radius: 50%!important;
+}
+
+.w-100 {
+    width: 100%!important;
+}
+
+.font-normal {
+    font-weight: 400;
+}
+
+.mb-1, .my-1 {
+    margin-bottom: .25rem!important;
+}
+
+.font-12 {
+    font-size: 12px;
+}
+
+.text-muted {
+    color: #8898aa!important;
+}
+.mr-2, .mx-2 {
+    margin-right: .5rem!important;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.text-uppercase {
+    text-transform: uppercase!important;
+}
+
+.font-14 {
+    font-size: 14px;
+}
+.font-light {
+    font-weight: 300;
+}
+
+.mt-3, .my-3 {
+    margin-top: 1rem!important;
+}
+.mb-2, .my-2 {
+    margin-bottom: .5rem!important;
+}
+.d-block {
+    display: block!important;
+}
+

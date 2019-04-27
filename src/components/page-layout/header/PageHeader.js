@@ -16,7 +16,6 @@ class PageHeader extends Component {
 
   componentDidMount() {
     UserService.getCurrentUser().then((resp) => {
-      console.log('USER', resp);
       this.setState({userName: resp.username, avatar: resp.avatar})
     })
   }
