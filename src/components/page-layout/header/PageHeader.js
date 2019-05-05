@@ -6,6 +6,7 @@ import logoDarkWithText from './admin-text-dark.png';
 import HeaderSearch from "./search/HeaderSearch";
 import HeaderUserProfile from "./user-profile/HeaderUserProfile";
 import UserService from "../../../api/Users";
+import GoogleAuth from "../../googleAuth/GoogleAuth";
 
 class PageHeader extends Component {
 
@@ -43,6 +44,9 @@ class PageHeader extends Component {
             </li>
             <li>
              <HeaderUserProfile avatar={this.state.avatar} userName={this.state.userName}/>
+            </li>
+            <li>
+              <GoogleAuth/>
             </li>
           </ul>
         </div>

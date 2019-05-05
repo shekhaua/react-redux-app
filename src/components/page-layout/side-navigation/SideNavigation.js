@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import classNames from 'classnames';
+
+import './SideNavigation.css';
 
 class SideNavigation extends Component {
 
@@ -11,11 +14,8 @@ class SideNavigation extends Component {
     return items.map((i, index) => {
       const cssClass = classNames({'fa': true, 'fa-fw': true, [`fa-${i.icon}`]: i.icon});
       return (
-        <li key={index} style={{'padding': '70px 0 0'}}>
-          <a href={i.route}>
-            <i className={cssClass} aria-hidden="true"></i>
-            {i.label}
-          </a>
+        <li key={index}>
+          <Link to={i.route}><i className={cssClass} aria-hidden="true"></i>{i.label}</Link>
         </li>
       );
     });
