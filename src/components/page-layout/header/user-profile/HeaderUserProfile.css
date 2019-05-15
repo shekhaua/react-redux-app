@@ -1,0 +1,91 @@
+.header-user-profile {
+    position: relative;
+}
+
+.header-user-profile .nav-link {
+    padding: 0 14px;
+    font-size: 14px;
+    line-height: 60px;
+    height: 60px;
+    color: #fff;
+    white-space: nowrap;
+    display: block;
+}
+
+.header-user-profile .dropdown-menu {
+    padding-top: 0;
+    border: 0;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, .1);
+}
+
+.header-user-profile .border-bottom {
+    border-bottom: 1px solid rgba(120,130,140,.13)!important;
+}
+
+.header-user-profile .align-items-center {
+    align-items: center!important;
+}
+
+.header-user-profile  .user-dd {
+    min-width: 280px;
+}
+
+
+
+
+.navbar-nav .dropdown-menu {
+    position: static;
+    float: none;
+}
+
+
+
+.dropdown-divider {
+    height: 0;
+    margin: .5rem 0;
+    overflow: hidden;
+    border-top: 1px solid #f7fafc;
+}
+
+
+
+
+.p-3 {
+    padding: 1rem!important;
+}
+
+
+
+
+
+.header-user-profile .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: .65rem 1rem;
+    clear: both;
+    color: #212529;
+    text-align: inherit;
+    background-color: transparent;
+    border: 0;
+    white-space: nowrap;
+    font-weight: 400;
+}
+
+.ml-1, .mx-1 {
+    margin-left: .25rem!important;
+}
+
+[class*=" ti-"], [class^=ti-] {
+    font-family: themify;
+    speak: none;
+    font-variant: normal;
+    text-transform: none;
+}
+
+.wi, [class*=" ti-"], [class^=ti-] {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

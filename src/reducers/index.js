@@ -4,6 +4,7 @@ import {toastMessageReducer} from "./toast-message";
 import {postsReducer} from "./posts";
 import {usersReducer} from "./users";
 import {googleAuthReducer} from "./googleAuth";
+import {signedUserReducer} from "./signedUser";
 
 export default combineReducers({
   songs: songsReducer,
@@ -11,5 +12,6 @@ export default combineReducers({
   toastMessage: toastMessageReducer,
   posts: postsReducer,
   users: usersReducer,
-  googleAuth: googleAuthReducer
+  googleAuth: googleAuthReducer,
+  signedUser: signedUserReducer
 });

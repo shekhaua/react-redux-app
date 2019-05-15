@@ -1,11 +1,10 @@
-let auth = null;
+export const SET_SIGNED_USER = 'GET_SIGNED_USER';
 
-export const GET_USER_PROFILE = 'GET_USER_PROFILE';
-
-
-export function getUserProfile() {
-  return {
-    type: GET_USER_PROFILE,
-    payload: {}
-  }
+export function setSignedUser(signedUser) {
+  return (dispatch, getState) => {
+    dispatch({
+      type: SET_SIGNED_USER,
+      payload: signedUser
+    });
+  };
 }

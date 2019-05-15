@@ -714,12 +714,12 @@ hr {
   background-color: #e4e7ea
 }
 
-.dropdown-menu {
+/*.dropdown-menu {
   border: 1px solid rgba(120, 130, 140, .13);
   border-radius: 0;
   box-shadow: 0 3px 12px rgba(0, 0, 0, .05) !important;
-  /* -webkit-box-shadow: 0 !important;
-    -moz-box-shadow: 0 !important;*/
+  !* -webkit-box-shadow: 0 !important;
+    -moz-box-shadow: 0 !important;*!
   padding-bottom: 8px;
   margin-top: 0
 }
@@ -730,7 +730,7 @@ hr {
 
 .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
   background: #f7fafc
-}
+}*/
 
 .navbar-top-links .progress {
   margin-bottom: 6px
