@@ -1,26 +1,14 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+
 import logo from './admin-logo.png';
 import logoDark from './admin-logo-dark.png';
 import logoWithText from './admin-text.png';
 import logoDarkWithText from './admin-text-dark.png';
 import HeaderSearch from "./search/HeaderSearch";
 import HeaderUserProfile from "./user-profile/HeaderUserProfile";
-import UserService from "../../../api/Users";
-import GoogleAuth from "../../googleAuth/GoogleAuth";
 
 class PageHeader extends Component {
-
-  state = {
-    userName: '',
-    avatar: ''
-  };
-
-  componentDidMount() {
-    UserService.getCurrentUser().then((resp) => {
-      this.setState({userName: resp.username, avatar: resp.avatar})
-    })
-  }
-
   render () {
     return (
       <nav className="navbar navbar-default navbar-static-top m-b-0">
@@ -43,10 +31,7 @@ class PageHeader extends Component {
               <HeaderSearch/>
             </li>
             <li>
-             <HeaderUserProfile avatar={this.state.avatar} userName={this.state.userName}/>
-            </li>
-            <li>
-              <GoogleAuth/>
+             <HeaderUserProfile avatar={this.props.user.imageUrl} userName={this.props.user.name} email={this.props.user.email}/>
             </li>
           </ul>
         </div>
@@ -55,4 +40,11 @@ class PageHeader extends Component {
   }
 }
 
-export default PageHeader;
+function mapStateToProps(state) {
+  console.log("HEADER", state);
+  return {
+    user: state.googleAuth.user
+  };
+}
+
+export default connect(mapStateToProps, {})(PageHeader);

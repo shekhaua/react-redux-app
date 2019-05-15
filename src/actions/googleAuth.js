@@ -1,4 +1,4 @@
-const clientId = '146740294915-0v55b19e3otqmk2aqbl7ic10c393saoc.apps.googleusercontent.com';
+const clientId = '';
 const scope = 'email';
 const api = window.gapi;
 let auth = null;
@@ -11,10 +11,10 @@ export function initGoogleAuth() {
     await loadAndInitAuth(dispatch).then(() => {
       auth = api.auth2.getAuthInstance();
       auth.isSignedIn.listen(() => {
-        onStatusChange(dispatch, auth.isSignedIn.get(), null);
+        onStatusChange(dispatch, auth.isSignedIn.get());
       });
     });
-    onStatusChange(dispatch, auth.isSignedIn.get(), null);
+    onStatusChange(dispatch, auth.isSignedIn.get());
   };
 }
 
@@ -42,10 +42,19 @@ function loadAndInitAuth() {
   });
 }
 
-function onStatusChange (dispatch, isSigned, userId) {
+function onStatusChange (dispatch, isSigned) {
   let action = null;
   if (isSigned) {
-    action =  { type: GOOGLE_SIGN_IN, payload: userId};
+    const userProfile = auth.currentUser.get().getBasicProfile();
+    const user = {
+      id: userProfile.getId(),
+      imageUrl: userProfile.getImageUrl(),
+      email: userProfile.getEmail(),
+      familyName: userProfile.getFamilyName(),
+      givenName: userProfile.getGivenName(),
+      name: userProfile.getName()
+    };
+    action =  { type: GOOGLE_SIGN_IN, payload: user};
   } else {
     action =  { type: GOOGLE_SIGN_OUT};
   }

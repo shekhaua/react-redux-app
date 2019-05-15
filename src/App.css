@@ -49,6 +49,13 @@
 .mb-1, .my-1 {
     margin-bottom: .25rem!important;
 }
+.ml-1, .mx-1 {
+    margin-left: .25rem!important;
+}
+
+.mr-1, .mx-1 {
+    margin-right: .25rem!important;
+}
 
 .font-12 {
     font-size: 12px;
@@ -59,10 +66,6 @@
 }
 .mr-2, .mx-2 {
     margin-right: .5rem!important;
-}
-
-.font-medium {
-    font-weight: 500;
 }
 
 .text-uppercase {
