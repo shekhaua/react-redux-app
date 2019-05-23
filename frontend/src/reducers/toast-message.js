@@ -1,4 +1,4 @@
-import {ToastMessageActions} from "../actions";
+import {ToastMessageActions} from "../actions/index";
 
 const initialState = {
   show: false,

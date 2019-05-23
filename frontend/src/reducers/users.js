@@ -1,4 +1,4 @@
-import {UserActions} from "../actions";
+import {UserActions} from "../actions/index";
 
 export const usersReducer = (currentState = [], action) => {
   switch(action.type){

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import {showToastMessage} from "../../actions";
+import {showToastMessage} from "../../actions/index";
 
 import BaseToastMessage from "../base-toast-message/BaseToastMessage";
 

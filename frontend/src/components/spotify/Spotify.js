@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import BaseWidget from "../base-widget/BaseWidget";
-import {selectSong, showToastMessage, setToastMessageHeader, setToastMessageHeaderInfo, setToastMessage} from '../../actions'
+import {selectSong, showToastMessage, setToastMessageHeader, setToastMessageHeaderInfo, setToastMessage} from '../../actions/index'
 
 import './Spotify.css';
 
