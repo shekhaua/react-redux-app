@@ -41,7 +41,6 @@ class PageHeader extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log("HEADER", state);
   return {
     user: state.googleAuth.user
   };
