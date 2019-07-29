@@ -1,0 +1,48 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "streams": [
+    {
+      "title": "Enhancement MPORT-4791: Refactors file upload popup component, addresses the review comments.",
+      "description": "assasa",
+      "id": 15
+    },
+    {
+      "title": "test",
+      "description": "rest",
+      "id": 16
+    },
+    {
+      "title": "test user id test asss",
+      "description": "test usr id descr",
+      "id": 17
+    },
+    {
+      "title": "sadasd",
+      "description": "asdasd",
+      "userId": "111869761090641857872",
+      "id": 28
+    },
+    {
+      "title": "sdfds",
+      "description": "sdfsd",
+      "userId": "111869761090641857872",
+      "id": 29
+    }
+  ]
+}

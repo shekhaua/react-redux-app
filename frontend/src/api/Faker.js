@@ -1,4 +1,4 @@
-import faker from 'frontend/src/api/Faker';
+import faker from 'faker';
 
 class Faker {
   fakeAsync(path, delay = 1000, error = '') {

@@ -14,11 +14,28 @@ class SideNavigation extends Component {
     return items.map((i, index) => {
       const cssClass = classNames({'fa': true, 'fa-fw': true, [`fa-${i.icon}`]: i.icon});
       return (
-        <li key={index}>
-          <Link to={i.route}><i className={cssClass} aria-hidden="true"></i>{i.label}</Link>
+        <li key={index} className="sidebar-item">
+          <Link to={i.route}><i className={cssClass}></i>{i.label}</Link>
+          <ul className="collapse first-level in">
+            {this.renderSubMenu(i.items)}
+          </ul>
         </li>
       );
     });
+  }
+
+  renderSubMenu(items = []  ) {
+    return items.map((i, index) => {
+      return (
+        <li key={index} className="sidebar-item">
+          <Link to={i.route} className="sidebar-link">
+            <i></i>
+            <span className="hide-menu">{i.label}</span>
+          </Link>
+        </li>
+      );
+    });
+
   }
 
   render() {

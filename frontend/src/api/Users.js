@@ -1,4 +1,4 @@
-import faker from 'frontend/src/api/Faker';
+import faker from 'faker';
 import Faker from './Faker';
 
 class UserService extends Faker {

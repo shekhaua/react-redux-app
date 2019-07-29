@@ -1,12 +1,24 @@
 import React, {Component, Fragment} from 'react';
-import {Field, reduxForm} from 'redux-form';
-import Card from "../card/Card";
+import {connect} from 'react-redux';
+import {reduxForm} from 'redux-form';
 
 import './Streamy.css';
 
+import Card from "../card/Card";
+import {createStream, getStreams, deleteStream} from "../../actions/streamy";
+import {Redirect} from "react-router-dom";
+
 class Streamy extends Component {
+
+  state = {
+    goToCreateStream: false
+  };
+
+  componentDidMount(){
+    this.props.getStreams();
+  }
+
   renderTitleForm = ({input, meta, label}) => {
-    console.log(input, meta, label);
     return (
       <Fragment>
         <label htmlFor="title">{label}</label>
@@ -17,7 +29,6 @@ class Streamy extends Component {
   };
 
   renderDescriptionForm = ({input, meta, label}) => {
-    console.log(meta);
     return (
       <Fragment>
         <label htmlFor="title">{label}</label>
@@ -36,26 +47,118 @@ class Streamy extends Component {
   }
 
   doSubmit(formValues) {
-    console.log(formValues)
+    console.log(formValues);
+    this.props.createStream(formValues);
   }
 
   render() {
-    //console.log(this.props);
     return (
-      <Card title="Create a stream">
-        <form onSubmit={this.props.handleSubmit(this.doSubmit)} className="mt-3">
-          <div className="form-group">
-            <Field name="title" component={this.renderTitleForm} label="Title"/>
-          </div>
-          <div className="form-group">
-            <Field name="description" component={this.renderDescriptionForm} label="Description"/>
-          </div>
-          <div className="form-group">
-            <button className="btn btn-success" type="submit">Submit</button>
-          </div>
-        </form>
-      </Card>
+      <Fragment>
+        <Card title="Streams" cssClass="stream-list">
+          {this.renderCreateStreamButton()}
+          {this.renderStreamsList(this.props.streams)}
+        </Card>
+        {this.redirectToCreateStream()}
+      </Fragment>
     );
+  }
+
+  renderAdminButtons(stream) {
+    if(stream.userId && stream.userId === this.props.currentUser.id) {
+      return (
+        <td>
+          <button type="button" className="btn btn-outline-info btn-circle btn-lg btn-circle"
+                  onClick={this.deleteStream.bind(this, stream.id)}>
+            <i className="ti-trash"></i>
+          </button>
+          <button type="button" className="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"
+                  onClick={this.editStream.bind(this, stream.id)}>
+            <i className="ti-pencil-alt"></i>
+          </button>
+        </td>
+      );
+    }
+  }
+
+  renderStreamsList(streams) {
+    const rows = streams.map((stream, index) => {
+      return(
+        <tr key={stream.id}>
+          <td className="pl-4">{index + 1}</td>
+          <td>
+            <h5 className="font-medium mb-0">{stream.title}</h5>
+            <span className="text-muted">{stream.description}</span>
+          </td>
+          <td>
+            <span className="text-muted">User Name</span><br/>
+            <span className="text-muted">User Surname</span>
+          </td>
+          <td>
+            <span className="text-muted">daniel@website.com</span><br/>
+            <span className="text-muted">999 - 444 - 555</span>
+          </td>
+          {this.renderAdminButtons(stream)}
+        </tr>
+      );
+    });
+
+    return (
+      <div className="table-responsive">
+        <table className="table no-wrap user-table mb-0">
+          <thead>
+          <tr>
+            <th scope="col" className="border-0 text-uppercase font-medium pl-4">#</th>
+            <th scope="col" className="border-0 text-uppercase font-medium">Name</th>
+            <th scope="col" className="border-0 text-uppercase font-medium">User</th>
+            <th scope="col" className="border-0 text-uppercase font-medium">Email</th>
+            <th scope="col" className="border-0 text-uppercase font-medium">Manage</th>
+          </tr>
+          </thead>
+          <tbody>
+          {rows}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+
+  renderCreateStreamButton() {
+    if(!this.props.userSignedIn) { return null; }
+    return (
+      <div className="pull-right">
+        {/*<button className="btn btn-circle btn-success text-white" onClick={() => this.setState({goToCreateStream: true})}>
+          <i className="ti-plus"></i>
+        </button>*/}
+        <button className="btn btn-circle btn-success text-white" onClick={this.navigateToCreateStream.bind(this)}>
+          <i className="ti-plus"></i>
+        </button>
+        <span className="ml-2 font-normal text-dark">Create Stream</span>
+      </div>
+    );
+  }
+
+  /*
+  * 1st way of doing navigation: using Redirect
+  * */
+  redirectToCreateStream() {
+    if (this.state.goToCreateStream) {
+      return (
+        <Redirect to="/streams/new"/>
+      );
+    }
+    return null;
+  }
+
+  navigateToCreateStream() {
+    this.props.history.push('streams/new');
+  }
+
+  deleteStream(id) {
+    this.props.deleteStream(id);
+  }
+
+  editStream(id) {
+    this.props.history.push(`streams/edit/${id}`);
   }
 }
 
@@ -73,5 +176,14 @@ function validate(formValues) {
   return errors;
 }
 
+function mapStateToProps(state) {
+  return {
+    streams: Object.values(state.streams),
+    currentUser: state.googleAuth.user,
+    userSignedIn: state.googleAuth.userSignedIn
+  }
+}
 
-export default reduxForm({ form: 'createStream', validate })(Streamy);
+  const wrapped = reduxForm({ form: 'createStream', validate })(Streamy);
+
+export default connect(mapStateToProps, { getStreams, createStream, deleteStream})(wrapped);

@@ -4,6 +4,7 @@ import PageHeader from "./header/PageHeader";
 import SideNavigation from "./side-navigation/SideNavigation";
 import PageFooter from "./footer/PageFooter";
 import ContentHeader from "./content-header/ContentHeader";
+import {STREAMS, CREATE_STREAM} from '../../components/streamy/routes';
 
 const navItems = [{
     icon: 'clock-o',
@@ -31,8 +32,12 @@ const navItems = [{
 
   },{
     icon: 'video-camera',
-    route: '/streamy',
-    label: 'Streamy'
+    route: STREAMS,
+    label: 'Streamy',
+    items: [{
+      route: CREATE_STREAM,
+      label: 'Create Stream',
+    }]
 }];
 
 const PageLayout = (props) => {

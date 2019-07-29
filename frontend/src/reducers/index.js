@@ -6,6 +6,7 @@ import {postsReducer} from "./posts";
 import {usersReducer} from "./users";
 import {googleAuthReducer} from "./googleAuth";
 import {signedUserReducer} from "./signedUser";
+import streamyReducer from "./streamy";
 
 export default combineReducers({
   form: formReducer,
@@ -15,5 +16,6 @@ export default combineReducers({
   posts: postsReducer,
   users: usersReducer,
   googleAuth: googleAuthReducer,
-  signedUser: signedUserReducer
+  signedUser: signedUserReducer,
+  streams: streamyReducer
 });

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Route, Router } from 'react-router-dom'
 
 import './App.css';
 
@@ -13,21 +13,32 @@ import Spotify from "./components/spotify/Spotify";
 import ToastMessage from "./components/toast-message/ToastMessage";
 import Posts from "./components/posts/Posts";
 import Streamy from "./components/streamy/Streamy";
+import CreateStream from "./components/streamy/create-stream/CreateStream";
+import history from './history';
+import ShowStream from "./components/streamy/show-stream/ShowStream";
+import EditStream from "./components/streamy/edit-stream/EditStream";
+import DeleteStream from "./components/streamy/delete-stream/DeleteStream";
+
+import { STREAMS, CREATE_STREAM, EDIT_STREAM, DELETE_STREAM, SHOW_STREAM } from './components/streamy/routes';
 
 class App extends Component {
   render(/*props*/) {
     return (
-      <BrowserRouter>
+      <Router history={history}>
         <PageLayout>
           <Route path="/" exact component={Widgets}/>
           <Route path="/unsplash" component={UnsplashSearch}/>
           <Route path="/youtube" component={YouTubeSearch}/>
           <Route path="/spotify" component={SpotifySongs}/>
           <Route path="/posts" component={PostsList}/>
-          <Route path="/streamy" component={Streamy}/>
+          <Route path={STREAMS} exact component={Streamy}/>
+          <Route path={CREATE_STREAM} exact component={CreateStream}/>
+          <Route path={SHOW_STREAM} exact component={ShowStream}/>
+          <Route path={EDIT_STREAM} exact component={EditStream}/>
+          <Route path={DELETE_STREAM} exact component={DeleteStream}/>
           <ToastMessage/>
         </PageLayout>
-      </BrowserRouter>
+      </Router>
     );
   }
 }
