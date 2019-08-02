@@ -19,7 +19,7 @@ import ShowStream from "./components/streamy/show-stream/ShowStream";
 import EditStream from "./components/streamy/edit-stream/EditStream";
 import DeleteStream from "./components/streamy/delete-stream/DeleteStream";
 
-import { STREAMS, CREATE_STREAM, EDIT_STREAM, DELETE_STREAM, SHOW_STREAM } from './components/streamy/routes';
+import { STREAMS, CREATE_STREAM, EDIT_STREAM, deleteStreamPath, SHOW_STREAM } from './components/streamy/routes';
 
 class App extends Component {
   render(/*props*/) {
@@ -35,7 +35,7 @@ class App extends Component {
           <Route path={CREATE_STREAM} exact component={CreateStream}/>
           <Route path={SHOW_STREAM} exact component={ShowStream}/>
           <Route path={EDIT_STREAM} exact component={EditStream}/>
-          <Route path={DELETE_STREAM} exact component={DeleteStream}/>
+          <Route path={deleteStreamPath()} component={DeleteStream}/>
           <ToastMessage/>
         </PageLayout>
       </Router>

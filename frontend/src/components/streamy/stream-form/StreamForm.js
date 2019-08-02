@@ -4,7 +4,7 @@ import {Field, reduxForm} from "redux-form";
 class StreamForm extends Component {
 
   render() {
-    console.log("FORM", this.props);
+    //console.log("FORM", this.props);
     return (
       <form onSubmit={this.props.handleSubmit(this.props.doSubmit)} className="mt-3">
         <div className="form-group">
@@ -21,7 +21,7 @@ class StreamForm extends Component {
   }
 
   renderTitleForm = ({input, meta, label}) => {
-    console.log("TITLE", input.value);
+    //console.log("TITLE", input.value);
     return (
       <Fragment>
         <label htmlFor="title">{label}</label>

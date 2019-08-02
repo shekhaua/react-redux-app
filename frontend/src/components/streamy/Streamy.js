@@ -1,12 +1,15 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {reduxForm} from 'redux-form';
+import {Redirect} from "react-router-dom";
 
 import './Streamy.css';
 
 import Card from "../card/Card";
-import {createStream, getStreams, deleteStream} from "../../actions/streamy";
-import {Redirect} from "react-router-dom";
+
+import {createStream, getStreams} from "../../actions/streamy";
+import {deleteStreamPath} from '../../components/streamy/routes';
+
 
 class Streamy extends Component {
 
@@ -47,7 +50,6 @@ class Streamy extends Component {
   }
 
   doSubmit(formValues) {
-    console.log(formValues);
     this.props.createStream(formValues);
   }
 
@@ -154,7 +156,7 @@ class Streamy extends Component {
   }
 
   deleteStream(id) {
-    this.props.deleteStream(id);
+    this.props.history.push(deleteStreamPath(id));
   }
 
   editStream(id) {
@@ -186,4 +188,4 @@ function mapStateToProps(state) {
 
   const wrapped = reduxForm({ form: 'createStream', validate })(Streamy);
 
-export default connect(mapStateToProps, { getStreams, createStream, deleteStream})(wrapped);
+export default connect(mapStateToProps, { getStreams, createStream})(wrapped);

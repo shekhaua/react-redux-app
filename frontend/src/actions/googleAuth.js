@@ -1,4 +1,4 @@
-const clientId = '';
+const clientId = '146740294915-0v55b19e3otqmk2aqbl7ic10c393saoc.apps.googleusercontent.com';
 const scope = 'email';
 const api = window.gapi;
 let auth = null;
@@ -21,7 +21,7 @@ export function initGoogleAuth() {
 export function tryToSignIn() {
   return (/*dispatch, getState*/) => {
     auth.signIn().then(() => {
-      console.log('Signed in');
+      //console.log('Signed in');
     });
   };
 }
@@ -29,7 +29,7 @@ export function tryToSignIn() {
 export function tryToSignOut() {
   return (/*dispatch, getState*/) =>  {
     auth.signOut().then(() => {
-      console.log("Signed out");
+      //console.log("Signed out");
     });
   }
 }

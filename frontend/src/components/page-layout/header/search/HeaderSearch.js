@@ -4,7 +4,7 @@ import BaseInput from "../../../base-input/BaseInput";
 class HeaderSearch extends Component {
 
   onInputSearch(e) {
-    console.log(e);
+    //console.log(e);
   }
 
   render () {

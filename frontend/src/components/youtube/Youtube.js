@@ -16,13 +16,13 @@ class Youtube extends Component {
 
   async onInputSubmit(e) {
     const resp = await getVideosList(e);
-    console.log(resp);
+    //console.log(resp);
     this.setState({ videos: resp, selectedVideo: resp.length && resp[0]});
   }
 
   onItemClick(event, video) {
     event.preventDefault();
-    console.log(video);
+    //console.log(video);
     this.setState({ selectedVideo: video });
   }
 

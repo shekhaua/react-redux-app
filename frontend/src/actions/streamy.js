@@ -6,7 +6,7 @@ import {
   updateStream as update
 } from "../api/Streamy";
 
-import {STREAMS, DELETE_STREAM as DELETE} from '../components/streamy/routes';
+import {STREAMS} from '../components/streamy/routes';
 
 import history from '../history'
 
@@ -57,8 +57,8 @@ export function replaceStream(stream) {
 
 export function deleteStream(id) {
   return async (dispatch) => {
-    const resp = await remove(id);
+    await remove(id);
     dispatch({type: DELETE_STREAM, payload: id});
-    history.push(DELETE);
+    history.push(STREAMS);
   }
 }
