@@ -1,14 +1,14 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {reduxForm} from 'redux-form';
-import {Redirect} from "react-router-dom";
+import {Redirect, Link} from "react-router-dom";
 
 import './Streamy.css';
 
 import Card from "../card/Card";
 
 import {createStream, getStreams} from "../../actions/streamy";
-import {deleteStreamPath} from '../../components/streamy/routes';
+import {deleteStreamPath, showStreamPath} from '../../components/streamy/routes';
 
 
 class Streamy extends Component {
@@ -88,7 +88,7 @@ class Streamy extends Component {
         <tr key={stream.id}>
           <td className="pl-4">{index + 1}</td>
           <td>
-            <h5 className="font-medium mb-0">{stream.title}</h5>
+            <h5 className="font-medium mb-0"><Link to={showStreamPath(stream.id)}>{stream.title}</Link></h5>
             <span className="text-muted">{stream.description}</span>
           </td>
           <td>

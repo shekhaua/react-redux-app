@@ -1,0 +1,48 @@
+.spinner-border {
+    width: 2rem;
+    height: 2rem;
+    border: .25em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spinner-border .75s linear infinite
+}
+
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+    border-width: .2em
+}
+
+.spinner-grow {
+    width: 2rem;
+    height: 2rem;
+    background-color: currentColor;
+    border-radius: 50%;
+    opacity: 0;
+    animation: spinner-grow .75s linear infinite
+}
+
+.spinner-grow-sm {
+    width: 1rem;
+    height: 1rem
+}
+
+.spinner-border, .spinner-grow {
+    display: inline-block;
+    vertical-align: text-bottom;
+}
+
+@keyframes spinner-border {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes spinner-grow {
+    0% {
+        transform: scale(0)
+    }
+    50% {
+        opacity: 1
+    }
+}

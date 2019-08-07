@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import pick from 'lodash.pick';
 
 import Card from "../../card/Card";
+import LoadingIndicator from '../../spinner/LoadingIndicator';
 import StreamForm from "../stream-form/StreamForm";
 
 import {getStream, updateStream} from "../../../actions/streamy";
@@ -16,7 +17,9 @@ class EditStream extends Component {
 
   render() {
     if(!this.props.stream) {
-      return <div>Loading ...</div>
+      return (
+        <LoadingIndicator/>
+      );
     }
     const formValues = pick(this.props.stream, ['title', 'description']);
 

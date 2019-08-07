@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Router } from 'react-router-dom'
+import { Route, Router, Switch} from 'react-router-dom'
 
 import './App.css';
 
@@ -19,23 +19,26 @@ import ShowStream from "./components/streamy/show-stream/ShowStream";
 import EditStream from "./components/streamy/edit-stream/EditStream";
 import DeleteStream from "./components/streamy/delete-stream/DeleteStream";
 
-import { STREAMS, CREATE_STREAM, EDIT_STREAM, deleteStreamPath, SHOW_STREAM } from './components/streamy/routes';
+import { STREAMS, CREATE_STREAM, EDIT_STREAM, deleteStreamPath, showStreamPath } from './components/streamy/routes';
+import ConnectExample from "./components/connect/Connect";
 
 class App extends Component {
   render(/*props*/) {
     return (
       <Router history={history}>
         <PageLayout>
-          <Route path="/" exact component={Widgets}/>
-          <Route path="/unsplash" component={UnsplashSearch}/>
-          <Route path="/youtube" component={YouTubeSearch}/>
-          <Route path="/spotify" component={SpotifySongs}/>
-          <Route path="/posts" component={PostsList}/>
-          <Route path={STREAMS} exact component={Streamy}/>
-          <Route path={CREATE_STREAM} exact component={CreateStream}/>
-          <Route path={SHOW_STREAM} exact component={ShowStream}/>
-          <Route path={EDIT_STREAM} exact component={EditStream}/>
-          <Route path={deleteStreamPath()} component={DeleteStream}/>
+            <Route path="/" exact component={Widgets}/>
+            <Route path="/unsplash" component={UnsplashSearch}/>
+            <Route path="/youtube" component={YouTubeSearch}/>
+            <Route path="/spotify" component={SpotifySongs}/>
+            <Route path="/posts" component={PostsList}/>
+            <Switch>
+              <Route path={STREAMS} exact component={Streamy}/>
+              <Route path={CREATE_STREAM} exact component={CreateStream}/>
+              <Route path={showStreamPath()} exact component={ShowStream}/>
+              <Route path={EDIT_STREAM} exact component={EditStream}/>
+              <Route path={deleteStreamPath()} exact component={DeleteStream}/>
+            </Switch>
           <ToastMessage/>
         </PageLayout>
       </Router>
