@@ -1,0 +1,9 @@
+.flags {
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.flags .flag-icon {
+    margin-left: 5px;
+    float: right;
+}

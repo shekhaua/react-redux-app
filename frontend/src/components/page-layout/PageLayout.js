@@ -38,6 +38,11 @@ const navItems = [{
       route: CREATE_STREAM,
       label: 'Create Stream',
     }]
+  }, {
+  icon: 'connectdevelop',
+  route: '/context',
+  label: 'Context'
+
 }];
 
 const PageLayout = (props) => {

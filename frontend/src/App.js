@@ -20,18 +20,18 @@ import EditStream from "./components/streamy/edit-stream/EditStream";
 import DeleteStream from "./components/streamy/delete-stream/DeleteStream";
 
 import { STREAMS, CREATE_STREAM, EDIT_STREAM, deleteStreamPath, showStreamPath } from './components/streamy/routes';
-import ConnectExample from "./components/connect/Connect";
+import ContextExample from "./components/context-example/ContextExample";
 
 class App extends Component {
   render(/*props*/) {
     return (
       <Router history={history}>
         <PageLayout>
-            <Route path="/" exact component={Widgets}/>
-            <Route path="/unsplash" component={UnsplashSearch}/>
-            <Route path="/youtube" component={YouTubeSearch}/>
-            <Route path="/spotify" component={SpotifySongs}/>
-            <Route path="/posts" component={PostsList}/>
+          <Route path="/" exact component={Widgets}/>
+          <Route path="/unsplash" component={UnsplashSearch}/>
+          <Route path="/youtube" component={YouTubeSearch}/>
+          <Route path="/spotify" component={SpotifySongs}/>
+          <Route path="/posts" component={PostsList}/>
             <Switch>
               <Route path={STREAMS} exact component={Streamy}/>
               <Route path={CREATE_STREAM} exact component={CreateStream}/>
@@ -39,6 +39,7 @@ class App extends Component {
               <Route path={EDIT_STREAM} exact component={EditStream}/>
               <Route path={deleteStreamPath()} exact component={DeleteStream}/>
             </Switch>
+          <Route path="/context" exact component={ContextExample}/>
           <ToastMessage/>
         </PageLayout>
       </Router>

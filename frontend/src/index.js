@@ -9,6 +9,7 @@ import 'font-awesome/css/font-awesome.css';
 import './index.css';
 //import './ample.css';
 import './defaultColors.css';
+import 'flag-icon-css/css/flag-icon.css';
 
 import App from './App';
 import reducers from './reducers';
