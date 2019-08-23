@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import LanguageContext from '../../contexts/LanguageContext';
 
 class BaseButton extends Component {
-  static contextType = LanguageContext;
 
   static defaultProps = {
     label: null,
@@ -18,16 +16,15 @@ class BaseButton extends Component {
     cssClass: PropTypes.string
   };
 
-  render() {
 
-    console.log('CONTEXT', this.context);
+  render() {
     const cssClass = classNames(
       {'btn': true},
       {[`btn-${this.props.type}`]: this.props.type},
       {[`${this.props.cssClass}`]: this.props.cssClass});
 
     return (
-      <button className={cssClass}>
+      <button onClick={this.props.doClick} className={cssClass}>
         {this.props.label}
       </button>
     );

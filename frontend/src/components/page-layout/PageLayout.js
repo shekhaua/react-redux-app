@@ -43,6 +43,11 @@ const navItems = [{
   route: '/context',
   label: 'Context'
 
+  }, {
+  icon: 'connectdevelop',
+  route: '/hooks',
+  label: 'Hooks'
+
 }];
 
 const PageLayout = (props) => {

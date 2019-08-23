@@ -21,6 +21,7 @@ import DeleteStream from "./components/streamy/delete-stream/DeleteStream";
 
 import { STREAMS, CREATE_STREAM, EDIT_STREAM, deleteStreamPath, showStreamPath } from './components/streamy/routes';
 import ContextExample from "./components/context-example/ContextExample";
+import HooksSimpleExample from "./components/hooks/HooksSimpleExample";
 
 class App extends Component {
   render(/*props*/) {
@@ -40,6 +41,7 @@ class App extends Component {
               <Route path={deleteStreamPath()} exact component={DeleteStream}/>
             </Switch>
           <Route path="/context" exact component={ContextExample}/>
+          <Route path="/hooks" exact component={HooksSimpleExample}/>
           <ToastMessage/>
         </PageLayout>
       </Router>

@@ -16,3 +16,8 @@ export async function fetchUser(id) {
   return user.data;
 }
 
+export async function fetchTodos() {
+  const posts = await jsonPlaceholder.get('/todos');
+  return posts.data;
+}
+
